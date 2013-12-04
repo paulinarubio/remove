@@ -7,12 +7,22 @@
 //
 
 #include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <string.h>
 
 int main(int argc, const char * argv[])
 {
-
-    // insert code here...
-    printf("Hello, World!\n");
-    return 0;
+    char buffer;
+    int sourcef, targetf, n;
+    
+    sourcef = open(argv[1],O_RDONLY);
+    if (sourcef== -1){
+        printf("Falló");
+    }
+    close(sourcef);
+    remove(argv[1]);
+   
 }
 
